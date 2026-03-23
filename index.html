@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afghandax | Political Content Creator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #1a1a1a;
+            --bg-card: #252525;
+            --text-primary: #ffffff;
+            --text-secondary: #b3b3b3;
+            --accent: #c41e3a;
+            --accent-hover: #e53935;
+            --border: #333;
+            --goofy: #ff6b6b;
+            --goofy2: #4ecdc4;
+            --goofy3: #ffe66d;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--bg-secondary);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+            .logo span {
+                color: var(--accent);
+            }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+            align-items: center;
+        }
+
+            .nav-links a {
+                color: var(--text-secondary);
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+
+                .nav-links a:hover {
+                    color: var(--accent);
+                }
+
+        .support-btn-nav {
+            background: linear-gradient(135deg, var(--goofy), var(--accent));
+            color: white !important;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 5px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+            .lang-btn.active {
+                background: var(--accent);
+                color: white;
+                border-color: var(--accent);
+            }
+
+            .lang-btn:hover {
+                background: var(--accent);
+                color: white;
+            }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            padding: 100px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+            .hero::before {
+                content: '🎬';
+                position: absolute;
+                font-size: 200px;
+                opacity: 0.05;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            .hero h1 {
+                font-size: 4em;
+                margin-bottom: 20px;
+                font-weight: 900;
+            }
+
+                .hero h1 span {
+                    color: var(--accent);
+                }
+
+            .hero p {
+                font-size: 1.3em;
+                color: var(--text-secondary);
+                max-width: 700px;
+                margin: 0 auto 30px;
+            }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .social-btn {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
+        }
+
+            .social-btn:hover {
+                background: var(--accent);
+                border-color: var(--accent);
+                transform: translateY(-3px);
+            }
+
+        /* BIG SUPPORT BUTTON IN HERO */
+        .hero-support-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffd700, #ff6b6b);
+            color: #000 !important;
+            padding: 18px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1.2em;
+            margin-top: 40px;
+            transition: all 0.3s;
+            border: 3px solid #ffd700;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+            animation: glow 2s ease-in-out infinite;
+            position: relative;
+            z-index: 10;
+        }
+
+            .hero-support-btn:hover {
+                transform: scale(1.08);
+                box-shadow: 0 0 50px rgba(255, 215, 0, 0.7);
+            }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 50px rgba(255, 215, 0, 0.7);
+            }
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-title {
+            font-size: 2.2em;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+            .section-title span {
+                color: var(--accent);
+            }
+
+        /* About */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+
+        .stat-number {
+            font-size: 2em;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            margin-top: 5px;
+            font-size: 0.9em;
+        }
+
+        /* Mission */
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .mission-card {
+            background: var(--bg-card);
+            padding: 35px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+            .mission-card:hover {
+                transform: translateY(-5px);
+                border-color: var(--accent);
+            }
+
+            .mission-card h3 {
+                color: var(--accent);
+                margin-bottom: 15px;
+                font-size: 1.4em;
+            }
+
+            .mission-card p {
+                color: var(--text-secondary);
+            }
+
+        .mission-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        /* AI Courses */
+        .courses-section {
+            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-card));
+            padding: 60px;
+            border-radius: 15px;
+            margin-top: 40px;
+            border: 1px solid var(--border);
+        }
+
+            .courses-section h3 {
+                font-size: 1.8em;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+            .courses-section p {
+                color: var(--text-secondary);
+                text-align: center;
+                margin-bottom: 30px;
+                font-size: 1.1em;
+            }
+
+        .course-content {
+            background: var(--bg-primary);
+            padding: 40px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+            .course-content h4 {
+                color: var(--accent);
+                margin-bottom: 20px;
+                font-size: 1.3em;
+            }
+
+            .course-content ul {
+                list-style: none;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 15px;
+            }
+
+                .course-content ul li {
+                    padding: 12px 20px;
+                    background: var(--bg-card);
+                    border-radius: 5px;
+                    border-left: 3px solid var(--accent);
+                }
+
+                    .course-content ul li::before {
+                        content: '✓ ';
+                        color: var(--accent);
+                        font-weight: bold;
+                    }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .tool-card {
+            background: var(--bg-card);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+            .tool-card span {
+                font-size: 2.5em;
+                display: block;
+                margin-bottom: 10px;
+            }
+
+        .notify-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 30px;
+            transition: background 0.3s;
+        }
+
+            .notify-btn:hover {
+                background: var(--accent-hover);
+            }
+
+        /* Blog */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-card {
+            background: var(--bg-card);
+            border-radius: 8px;
+            padding: 25px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+            .blog-card:hover {
+                border-color: var(--accent);
+            }
+
+        .blog-date {
+            color: var(--accent);
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .blog-card h3 {
+            margin-bottom: 15px;
+        }
+
+        .blog-card p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Support */
+        .support-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .support-card {
+            background: var(--bg-card);
+            padding: 40px 30px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+            .support-card:hover {
+                border-color: var(--accent);
+                transform: translateY(-5px);
+            }
+
+            .support-card h3 {
+                margin-bottom: 15px;
+            }
+
+            .support-card p {
+                color: var(--text-secondary);
+                margin-bottom: 25px;
+            }
+
+        .support-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+            .support-btn:hover {
+                background: var(--accent-hover);
+            }
+
+        /* Community */
+        .community-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .community-card {
+            background: var(--bg-card);
+            padding: 35px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+
+            .community-card h3 {
+                margin-bottom: 15px;
+            }
+
+            .community-card p {
+                color: var(--text-secondary);
+                margin-bottom: 25px;
+            }
+
+        .community-btn {
+            display: inline-block;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+            .community-btn:hover {
+                background: var(--accent);
+                border-color: var(--accent);
+            }
+
+        /* Sponsors */
+        .sponsors-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+            .sponsors-content p {
+                color: var(--text-secondary);
+                margin-bottom: 30px;
+                font-size: 1.1em;
+            }
+
+        .sponsor-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .benefit-card {
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+            .benefit-card h4 {
+                color: var(--accent);
+                margin-bottom: 10px;
+            }
+
+            .benefit-card p {
+                color: var(--text-secondary);
+                font-size: 0.95em;
+            }
+
+        /* Contact */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+
+        .contact-details div {
+            margin-bottom: 20px;
+        }
+
+        .contact-details strong {
+            color: var(--text-primary);
+        }
+
+        .contact-details span {
+            color: var(--text-secondary);
+        }
+
+        .contact-form {
+            background: var(--bg-card);
+            padding: 35px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+            .contact-form form {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .contact-form input,
+            .contact-form textarea {
+                background: var(--bg-secondary);
+                border: 1px solid var(--border);
+                color: var(--text-primary);
+                padding: 15px;
+                margin-bottom: 20px;
+                border-radius: 5px;
+                font-size: 16px;
+            }
+
+                .contact-form input:focus,
+                .contact-form textarea:focus {
+                    outline: none;
+                    border-color: var(--accent);
+                }
+
+            .contact-form textarea {
+                height: 150px;
+                resize: vertical;
+            }
+
+            .contact-form button {
+                background: var(--accent);
+                color: white;
+                padding: 15px 30px;
+                border: none;
+                border-radius: 5px;
+                font-size: 16px;
+                cursor: pointer;
+                transition: background 0.3s;
+            }
+
+                .contact-form button:hover {
+                    background: var(--accent-hover);
+                }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            padding: 50px 0 30px;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+            .footer-section ul li {
+                margin-bottom: 10px;
+            }
+
+        .footer-section a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+            .footer-section a:hover {
+                color: var(--accent);
+            }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        /* Goofy Rainbow Text */
+        .goofy-text {
+            background: linear-gradient(90deg, var(--goofy), var(--goofy2), var(--goofy3), var(--accent), var(--goofy));
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: rainbow 4s ease infinite;
+        }
+
+        @keyframes rainbow {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Language Content */
+        .lang-content {
+            display: none;
+        }
+
+            .lang-content.active {
+                display: block;
+            }
+
+        /* Floating Support Button (Fixed Bottom Right) */
+        .floating-support {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #ffd700, #ff6b6b);
+            color: #000;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1em;
+            z-index: 9999;
+            box-shadow: 0 5px 30px rgba(255, 215, 0, 0.5);
+            transition: all 0.3s;
+            animation: float 3s ease-in-out infinite;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+            .floating-support:hover {
+                transform: scale(1.1);
+                box-shadow: 0 10px 40px rgba(255, 215, 0, 0.8);
+            }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .courses-section {
+                padding: 30px 20px;
+            }
+
+            .floating-support {
+                bottom: 20px;
+                right: 20px;
+                padding: 12px 20px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Support Button (Always Visible) -->
+    <a href="#support" class="floating-support">💖 Support Me</a>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo"><img src="logo.png" alt="Afghandax" style="height: 40px;"></a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#mission">Mission</a></li>
+                <li><a href="#courses">AI Courses</a></li>
+                <li><a href="#blog">News</a></li>
+                <li><a href="#community">Community</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#support" class="support-btn-nav">❤️ Support</a></li>
+            </ul>
+            <div class="lang-switch">
+                <button class="lang-btn active" onclick="switchLang('en')">EN</button>
+                <button class="lang-btn" onclick="switchLang('fa')">FA</button>
+                <button class="lang-btn" onclick="switchLang('de')">DE</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section - English -->
+    <section class="hero lang-content active" id="content-en">
+        <div class="container">
+            <h1 class="goofy-text">AFGHANDAX</h1>
+            <p>Political Content Creator | AI-Powered Videos | Unbiased Stories | Afghanistan & Iran News</p>
+            <p style="color: var(--text-secondary); margin-top: 10px;">Content in English, Persian/Dari & German 🌍</p>
+            <div class="social-links">
+                <a href="https://instagram.com/afghandax" class="social-btn" target="_blank">📷 Instagram</a>
+                <a href="https://tiktok.com/@afghandaxx" class="social-btn" target="_blank">🎵 TikTok</a>
+                <a href="https://www.youtube.com/@afghandax" class="social-btn" target="_blank">📺 YouTube</a>
+                <a href="https://t.me/afghandaxx" class="social-btn" target="_blank">📢 Telegram</a>
+            </div>
+            <a href="#support" class="hero-support-btn">💰 Support My Work</a>
+        </div>
+    </section>
+
+    <!-- Hero Section - Persian -->
+    <section class="hero lang-content" id="content-fa">
+        <div class="container">
+            <h1 class="goofy-text">افغانداکس</h1>
+            <p>خالق محتوای سیاسی | ویدیوهای هوش مصنوعی | داستان‌های بی‌طرفانه | اخبار افغانستان و ایران</p>
+            <p style="color: var(--text-secondary); margin-top: 10px;">محتوا به انگلیسی، فارسی/دری و آلمانی 🌍</p>
+            <div class="social-links">
+                <a href="https://instagram.com/afghandax" class="social-btn" target="_blank">📷 اینستاگرام</a>
+                <a href="https://tiktok.com/@afghandaxx" class="social-btn" target="_blank">🎵 تیک‌تاک</a>
+                <a href="https://www.youtube.com/@afghandax" class="social-btn" target="_blank">📺 یوتیوب</a>
+                <a href="https://t.me/afghandaxx" class="social-btn" target="_blank">📢 تلگرام</a>
+            </div>
+            <a href="#support" class="hero-support-btn">💰 حمایت از من</a>
+        </div>
+    </section>
+
+    <!-- Hero Section - German -->
+    <section class="hero lang-content" id="content-de">
+        <div class="container">
+            <h1 class="goofy-text">AFGHANDAX</h1>
+            <p>Politischer Content Creator | KI-Videos | Unvoreingenommene Geschichten | Afghanistan & Iran News</p>
+            <p style="color: var(--text-secondary); margin-top: 10px;">Inhalte auf Englisch, Persisch/Dari & Deutsch 🌍</p>
+            <div class="social-links">
+                <a href="https://instagram.com/afghandax" class="social-btn" target="_blank">📷 Instagram</a>
+                <a href="https://tiktok.com/@afghandaxx" class="social-btn" target="_blank">🎵 TikTok</a>
+                <a href="https://www.youtube.com/@afghandax" class="social-btn" target="_blank">📺 YouTube</a>
+                <a href="https://t.me/afghandaxx" class="social-btn" target="_blank">📢 Telegram</a>
+            </div>
+            <a href="#support" class="hero-support-btn">💰 Unterstütze Mich</a>
+        </div>
+    </section>
+
+    <!-- About Section - English -->
+    <section id="about" class="section lang-content active" data-lang="en">
+        <div class="container">
+            <h2 class="section-title">About <span>Me</span></h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I'm <strong>Afghandax</strong>, a political content creator and digital storyteller. I create AI-powered videos and commentary focused on Afghanistan, Iran, and Middle East politics.</p>
+                    <p>My content is for the <strong>artistic, ambitious, and curious</strong> – people who want to understand the world beyond headlines. I believe in truth, creative expression, and using technology to tell stories that matter.</p>
+                    <p>With <strong>millions of views</strong> and growing engagement across platforms, I'm building a community of informed citizens who care about what's really happening in the world.</p>
+                    <div class="about-stats">
+                        <div class="stat-card">
+                            <div class="stat-number">📈</div>
+                            <div class="stat-label">Fast Growing</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">⚖️</div>
+                            <div class="stat-label">Not Biased</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">🎯</div>
+                            <div class="stat-label">Stories You Don't Hear Anywhere Else</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="logo.png" alt="Afghandax Logo" style="max-width: 300px; border-radius: 8px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section - Persian -->
+    <section id="about" class="section lang-content" data-lang="fa">
+        <div class="container">
+            <h2 class="section-title">درباره <span>من</span></h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>من <strong>افغانداکس</strong> هستم، خالق محتوای سیاسی و داستان‌سرای دیجیتال. من ویدیوها و تفسیرهای مبتنی بر هوش مصنوعی درباره افغانستان، ایران و سیاست خاورمیانه ایجاد می‌کنم.</p>
+                    <p>محتوای من برای افراد <strong>هنرمند، بلندپرواز و کنجکاو</strong> است – کسانی که می‌خواهند فراتر از تیترها جهان را درک کنند.</p>
+                    <p>با <strong>میلیون‌ها بازدید</strong> و تعامل در حال رشد، من جامعه‌ای از شهروندان آگاه را می‌سازم.</p>
+                    <div class="about-stats">
+                        <div class="stat-card">
+                            <div class="stat-number">📈</div>
+                            <div class="stat-label">رشد سریع</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">⚖️</div>
+                            <div class="stat-label">بی‌طرف</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">🎯</div>
+                            <div class="stat-label">داستان‌هایی که جای دیگر نمی‌شنوید</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="logo.png" alt="Afghandax Logo" style="max-width: 300px; border-radius: 8px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section - German -->
+    <section id="about" class="section lang-content" data-lang="de">
+        <div class="container">
+            <h2 class="section-title">Über <span>Mich</span></h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Ich bin <strong>Afghandax</strong>, ein politischer Content Creator und digitaler Geschichtenerzähler. Ich erstelle KI-gestützte Videos und Kommentare über Afghanistan, Iran und Nahost-Politik.</p>
+                    <p>Meine Inhalte sind für <strong>künstlerische, ambitionierte und neugierige</strong> Menschen – die die Welt jenseits der Schlagzeilen verstehen wollen.</p>
+                    <p>Mit <strong>Millionen von Aufrufen</strong> und wachsendem Engagement baue ich eine Community informierter Bürger auf.</p>
+                    <div class="about-stats">
+                        <div class="stat-card">
+                            <div class="stat-number">📈</div>
+                            <div class="stat-label">Schnell wachsend</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">⚖️</div>
+                            <div class="stat-label">Nicht voreingenommen</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">🎯</div>
+                            <div class="stat-label">Geschichten, die du nirgendwo sonst hörst</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="logo.png" alt="Afghandax Logo" style="max-width: 300px; border-radius: 8px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section id="mission" class="section">
+        <div class="container">
+            <h2 class="section-title">My <span>Mission</span></h2>
+            <div class="mission-grid">
+                <div class="mission-card">
+                    <div class="mission-icon">🎯</div>
+                    <h3>Truth & Transparency</h3>
+                    <p>I present facts without bias. My content is researched and aimed at helping people form their own informed opinions.</p>
+                </div>
+                <div class="mission-card">
+                    <div class="mission-icon">🌍</div>
+                    <h3>Amplify Voices</h3>
+                    <p>Stories from Afghanistan and Iran deserve to be heard. I use my platform to bring attention to issues that matter.</p>
+                </div>
+                <div class="mission-card">
+                    <div class="mission-icon">🤖</div>
+                    <h3>AI Innovation</h3>
+                    <p>I leverage cutting-edge AI technology to create visually compelling content that makes complex topics accessible.</p>
+                </div>
+                <div class="mission-card">
+                    <div class="mission-icon">💬</div>
+                    <h3>Start Conversations</h3>
+                    <p>Real change happens through dialogue. I create content that encourages discussion and understanding.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Courses Section -->
+    <section id="courses" class="section">
+        <div class="container">
+            <h2 class="section-title">AI <span>Courses</span> 🤖</h2>
+            <div class="courses-section">
+                <h3>Coming Soon: Master AI Content Creation</h3>
+                <p>Learn everything I use to create viral AI-powered political content. From beginner to advanced – I'll teach you my entire workflow.</p>
+
+                <div class="course-content">
+                    <h4>📚 What You'll Learn:</h4>
+                    <ul>
+                        <li>AI Video Generation (full workflow)</li>
+                        <li>Image Generation & Editing</li>
+                        <li>Voice Cloning & Audio Processing</li>
+                        <li>Script Writing for Political Content</li>
+                        <li>ComfyUI Advanced Techniques</li>
+                        <li>Stable Diffusion Mastery</li>
+                        <li>Video Editing with AI Tools</li>
+                        <li>Content Strategy & Growth</li>
+                        <li>Monetization Methods</li>
+                        <li>Building a Personal Brand</li>
+                    </ul>
+
+                    <h4 style="margin-top: 30px;">🛠️ Tools We'll Cover:</h4>
+                    <div class="tools-grid">
+                        <div class="tool-card">
+                            <span>🎨</span>
+                            <p>ComfyUI</p>
+                        </div>
+                        <div class="tool-card">
+                            <span>🖼️</span>
+                            <p>Stable Diffusion</p>
+                        </div>
+                        <div class="tool-card">
+                            <span>🎬</span>
+                            <p>Runway ML</p>
+                        </div>
+                        <div class="tool-card">
+                            <span>🎙️</span>
+                            <p>ElevenLabs</p>
+                        </div>
+                        <div class="tool-card">
+                            <span>✂️</span>
+                            <p>Premiere Pro</p>
+                        </div>
+                        <div class="tool-card">
+                            <span>🤖</span>
+                            <p>Midjourney</p>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#contact" class="notify-btn">📧 Get Notified When Courses Launch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="section">
+        <div class="container">
+            <h2 class="section-title">News & <span>Articles</span></h2>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-date">March 23, 2026</div>
+                    <h3>Welcome to Afghandax.com</h3>
+                    <p>This is just the beginning. I'm building this platform to share longer-form content, connect with my community, and create something that lasts beyond social media algorithms.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-date">Coming Soon</div>
+                    <h3>How I Use AI to Create Political Content</h3>
+                    <p>A behind-the-scenes look at my workflow, tools, and techniques for creating engaging AI-powered videos.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-date">Coming Soon</div>
+                    <h3>Why Independent Media Matters</h3>
+                    <p>Traditional media has agendas. Here's why I believe in independent content creation.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section id="support" class="section">
+        <div class="container">
+            <h2 class="section-title">Support My <span>Work</span> ❤️</h2>
+            <p style="text-align: center; color: var(--text-secondary); max-width: 700px; margin: 0 auto 40px;">Independent content creation requires time, research, and resources. Your support helps me continue producing unbiased content.</p>
+            <div class="support-options">
+                <div class="support-card">
+                    <h3>🅿️ PayPal</h3>
+                    <p>Direct donation. Quick and secure.</p>
+                    <a href="https://paypal.me/bayat" class="support-btn" target="_blank">Donate via PayPal</a>
+                </div>
+                <div class="support-card">
+                    <h3>☕ Buy Me a Coffee</h3>
+                    <p>Support with a coffee! Every bit helps.</p>
+                    <a href="https://buymeacoffee.com/afghandax" class="support-btn" target="_blank">Buy Me a Coffee</a>
+                </div>
+                <div class="support-card">
+                    <h3>💰 Sponsorships</h3>
+                    <p>Partner with me for collabs and sponsorships.</p>
+                    <a href="#contact" class="support-btn">Contact for Sponsorship</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community" class="section">
+        <div class="container">
+            <h2 class="section-title">Join The <span>Community</span></h2>
+            <p style="text-align: center; color: var(--text-secondary); max-width: 700px; margin: 0 auto 40px;">Connect with like-minded people who care about truth and informed discourse.</p>
+            <div class="community-grid">
+                <div class="community-card">
+                    <h3>💬 Discord</h3>
+                    <p>Join discussions, get updates, and connect with the community.</p>
+                    <a href="#" class="community-btn">Join Discord (Coming Soon)</a>
+                </div>
+                <div class="community-card">
+                    <h3>📢 Telegram</h3>
+                    <p>Instant news updates and exclusive content.</p>
+                    <a href="https://t.me/afghandaxx" class="community-btn">Join Telegram</a>
+                </div>
+                <div class="community-card">
+                    <h3>📧 Newsletter</h3>
+                    <p>Weekly updates delivered to your inbox.</p>
+                    <a href="#contact" class="community-btn">Subscribe</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sponsors Section -->
+    <section id="sponsors" class="section">
+        <div class="container">
+            <h2 class="section-title">Collabs & <span>Sponsorships</span> 🤝</h2>
+            <div class="sponsors-content">
+                <p>I'm open to collaborations, sponsorships, and partnerships with brands, organizations, and creators who align with my values.</p>
+                <div class="sponsor-benefits">
+                    <div class="benefit-card">
+                        <h4>📊 Reach</h4>
+                        <p>Millions of views across platforms</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h4>🎯 Audience</h4>
+                        <p>Politically engaged, global audience</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h4>🎬 Content</h4>
+                        <p>Professional AI-powered videos</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h4>🌍 Languages</h4>
+                        <p>English, Persian/Dari, German</p>
+                    </div>
+                </div>
+                <a href="#contact" class="support-btn">Let's Work Together</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Get In <span>Touch</span></h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p>For collaborations, sponsorships, course inquiries, or just to say hi – reach out! I'm always open to new ideas and suggestions.</p>
+                    <div class="contact-details">
+                        <div>
+                            <strong>Languages:</strong><br>
+                            <span>English, Persian/Dari, German</span>
+                        </div>
+                        <div>
+                            <strong>Response Time:</strong><br>
+                            <span>Usually within 24-48 hours</span>
+                        </div>
+                        <div>
+                            <strong>Open For:</strong><br>
+                            <span>Collabs, Sponsorships, Ideas, Suggestions</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form action="https://formspree.io/f/xkoqlabe" method="POST">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="text" name="subject" placeholder="Subject">
+                        <textarea name="message" placeholder="Your Message - I'm open to ideas! 🚀" required></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>AFGHANDAX</h4>
+                    <p style="color: var(--text-secondary);">Political content creator. AI enthusiast. Independent media. 🎬</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#mission">Mission</a></li>
+                        <li><a href="#courses">AI Courses</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Social Media</h4>
+                    <ul>
+                        <li><a href="https://instagram.com/afghandax" target="_blank">Instagram</a></li>
+                        <li><a href="https://tiktok.com/@afghandaxx" target="_blank">TikTok</a></li>
+                        <li><a href="https://www.youtube.com/@afghandax" target="_blank">YouTube</a></li>
+                        <li><a href="https://t.me/afghandaxx" target="_blank">Telegram</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="https://paypal.me/bayat" target="_blank">PayPal</a></li>
+                        <li><a href="https://buymeacoffee.com/afghandax" target="_blank">Buy Me a Coffee</a></li>
+                        <li><a href="#contact">Sponsorships</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Afghandax. All rights reserved. | Built with ❤️ and AI</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Language Switch Script -->
+    <script>
+        function switchLang(lang) {
+        // Update button styles
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        });
+        event.target.classList.add('active');
+
+        // Hide all content
+        document.querySelectorAll('.lang-content').forEach(content => {
+        content.classList.remove('active');
+        });
+
+        // Show selected language content
+        document.querySelectorAll(`[data-lang="${lang}"]`).forEach(content => {
+        content.classList.add('active');
+        });
+
+        // Show hero for selected language
+        document.getElementById(`content-${lang}`).classList.add('active');
+        }
+    </script>
+</body>
+</html>
