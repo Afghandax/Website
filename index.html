@@ -365,10 +365,13 @@
             }
 
                 .course-content ul li {
-                    padding: 12px 20px;
+                    padding: 12px 15px;
                     background: var(--bg-card);
                     border-radius: 5px;
                     border-left: 3px solid var(--accent);
+                    word-wrap: break-word;
+                    overflow-wrap: break-word;
+                    max-width: 100%;
                 }
 
                     .course-content ul li::before {
@@ -788,14 +791,51 @@
             }
 
             .courses-section {
-                padding: 30px 20px;
+                padding: 30px 15px;
             }
 
-            .floating-support {
-                bottom: 20px;
-                right: 20px;
-                padding: 12px 20px;
-                font-size: 0.9em;
+            .course-content {
+                padding: 20px 10px;
+            }
+
+                .course-content ul {
+                    grid-template-columns: 1fr;
+                }
+
+                    .course-content ul li {
+                        padding: 10px 12px;
+                        font-size: 0.9em;
+                    }
+
+            .social-links {
+                flex-direction: column;
+                padding: 0 20px;
+            }
+
+            .social-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero-support-btn {
+                padding: 15px 35px;
+                font-size: 1em;
+            }
+
+            .tools-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .mission-grid,
+            .support-options,
+            .community-grid,
+            .sponsor-benefits,
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 1.8em;
             }
         }
     </style>
@@ -844,7 +884,7 @@
     <!-- Hero Section - Persian -->
     <section class="hero lang-content" id="content-fa">
         <div class="container">
-            <h1 class="goofy-text">افغاندَکس</h1>
+            <h1 class="goofy-text">افغانداکس</h1>
             <p>خالق محتوای سیاسی | ویدیوهای هوش مصنوعی | داستان‌های بی‌طرفانه | اخبار افغانستان و ایران</p>
             <p style="color: var(--text-secondary); margin-top: 10px;">محتوا به انگلیسی، فارسی/دری و آلمانی 🌍</p>
             <div class="social-links">
@@ -910,7 +950,7 @@
             <h2 class="section-title">درباره <span>من</span></h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>من <strong>افغاندَکس</strong> هستم، خالق محتوای سیاسی و داستان‌سرای دیجیتال. من ویدیوها و تفسیرهای مبتنی بر هوش مصنوعی درباره افغانستان، ایران و سیاست خاورمیانه ایجاد می‌کنم.</p>
+                    <p>من <strong>افغانداکس</strong> هستم، خالق محتوای سیاسی و داستان‌سرای دیجیتال. من ویدیوها و تفسیرهای مبتنی بر هوش مصنوعی درباره افغانستان، ایران و سیاست خاورمیانه ایجاد می‌کنم.</p>
                     <p>محتوای من برای افراد <strong>هنرمند، بلندپرواز و کنجکاو</strong> است – کسانی که می‌خواهند فراتر از تیترها جهان را درک کنند.</p>
                     <p>با <strong>میلیون‌ها بازدید</strong> و تعامل در حال رشد، من جامعه‌ای از شهروندان آگاه را می‌سازم.</p>
                     <div class="about-stats">
